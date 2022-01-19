@@ -5,7 +5,6 @@
 import telegram
 from picamera import PiCamera
 import time
-from tflite_runtime.interpreter import Interpreter
 import RPi.GPIO as GPIO
 import time
 import os
