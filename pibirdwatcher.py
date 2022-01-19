@@ -36,8 +36,11 @@ Current_State  = 0
 Previous_State = 0
 
 def takePicture(file_name):
+    camera.start_preview()
+    time.sleep(2)  # give the camera 2 seconds to adjust light balance
     camera.capture(file_name)
     print("Picture Taken.")
+    camera.stop_preview()
 
 def sendTelegram(file_name):
 #    bot.send_message(chat_id=TELEGRAM_CHAT_ID, text="From Telegram Bot")
@@ -72,8 +75,6 @@ try:
       Previous_State=1
       main()
       time.sleep(3)
-      main()
-      time.sleep(5)
       main()
       time.sleep(5)
       main()
