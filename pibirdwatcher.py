@@ -20,7 +20,8 @@ bot = telegram.Bot(token=TELEGRAM_BOT_TOKEN)
 # camera settings
 camera = PiCamera()
 time.sleep(1)
-camera.resolution = (1280, 720)
+camera.resolution = (640,480)
+camera.framerate=35			   
 
 # PIR settings
 # Use BCM GPIO references
@@ -43,7 +44,7 @@ def sendTelegram(file_name):
     bot.send_photo(chat_id=TELEGRAM_CHAT_ID, photo=open(file_name, 'rb'))
 
 def main():
-    file_name = "img_buffer.jpg"
+    file_name = "img_buffer.png"
     takePicture(file_name)
     sendTelegram(file_name)
 
